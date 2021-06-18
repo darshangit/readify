@@ -1,0 +1,5 @@
+.aside_left {
+  background-color: red;
+  grid-area: la;
+  grid-column: 1fr;
+}

@@ -1,0 +1,11 @@
+.header {
+  background-color: yellow;
+  grid-area: h;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.account {
+  justify-self: end;
+}

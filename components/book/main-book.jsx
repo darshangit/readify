@@ -1,36 +1,54 @@
-import styles from "./main-book.module.css";
+import {
+  Card,
+  CardTop,
+  CardInner,
+  CardImage,
+  CardTitle,
+  CardBody,
+  PageCount,
+  AuthorNames,
+  MainAuthor,
+  Button,
+} from "./main-book.styled";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faCheck, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 
 const MainBook = (props) => {
   let book = props.book;
   return (
     <>
-      <div className={styles.card}>
-        <div className={styles.card_top}>
-          <img src={book.volumeInfo.imageLinks?.thumbnail} alt="Image" />
-        </div>
-        <div className={styles.card_body}>
-          <div className={styles.title}>
-            <p>{book.volumeInfo.title} </p>
-          </div>
-          {book.volumeInfo.pageCount && (
-            <p className={styles.page_count}>
-              <span>{book.volumeInfo.pageCount} Pages </span>
-            </p>
-          )}
-          <div className={styles.card_info}>
-            {book.volumeInfo.authors && (
-              <div>
-                <p className={styles.author_title}>Authors</p>
-                <div className={styles.author_names}>
-                  {book.volumeInfo.authors.map((author, index) => {
-                    return <p key={index}>{author}</p>;
-                  })}
-                </div>
-              </div>
+      <Card>
+        <CardInner>
+          <CardTop>
+            <CardImage
+              src={book.volumeInfo.imageLinks?.thumbnail}
+              alt="Image"
+            />
+          </CardTop>
+          <CardBody>
+            {book.volumeInfo.pageCount && (
+              <PageCount>{book.volumeInfo.pageCount} Pages</PageCount>
             )}
-          </div>
-        </div>
-      </div>
+            {!book.volumeInfo.pageCount && (
+              <PageCount> Page Count Unavailable</PageCount>
+            )}
+            {book.volumeInfo.authors && (
+              <AuthorNames>
+                {book.volumeInfo.authors.map((author, index) => {
+                  return <MainAuthor key={index}>{author}</MainAuthor>;
+                })}
+              </AuthorNames>
+            )}
+            {!book.volumeInfo.authors && (
+              <AuthorNames>Authors Unavailable</AuthorNames>
+            )}
+            <FontAwesomeIcon title={"Add to Read"} icon={faPlus} />
+            <FontAwesomeIcon title={"Add to Reading"} icon={faBookOpen} />
+            <FontAwesomeIcon title={"Add to Completed"} icon={faCheck} />
+          </CardBody>
+        </CardInner>
+        <CardTitle>{book.volumeInfo.title} </CardTitle>
+      </Card>
     </>
   );
 };

@@ -8,7 +8,7 @@ async function handler(req, res) {
   const { data } = await client.query({
     query: gql`
       query search {
-        books(q: ${searchText}) @rest(type: "BooksPayload", path: "?{args}") {
+        books(q: ${searchText}) @rest(type: "BooksPayload", path: "?{args}&maxResults=40") {
           totalItems
           items @type(name: "Book") {
             id
