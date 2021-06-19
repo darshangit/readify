@@ -1,7 +1,7 @@
 .search_main_container {
   height: 100vh;
   width: 100vw;
-  background-color: pink;
+  background-color: white;
   display: grid;
 
   grid-template-columns: [col-start] 1fr [col-2] 6fr [col-3] 1fr [col-end];

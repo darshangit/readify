@@ -1,14 +1,9 @@
 .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: center;
 }
 
 .search_box {
-  /* background: white;
-  position: relative;
-  padding: 15px;
-  border-radius: 50px; */
   display: flex;
   flex-direction: row-reverse;
 }
@@ -26,11 +21,9 @@
 }
 
 .search_box .input_search {
-  box-shadow: 0 10px 16px -6px #585856;
-
+  box-shadow: 0 10px 16px -6px lightsalmon;
   outline: none;
   border: 0;
-  background: white;
   color: #000;
   padding: 15px 20px;
   width: 500px;
@@ -44,8 +37,4 @@
 
 .search_box ::-webkit-input-placeholder {
   color: black;
-}
-
-.search_box :hover {
-  box-shadow: 6px 4px 15px 1px #585856;
 }

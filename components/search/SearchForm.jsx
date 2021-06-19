@@ -1,7 +1,7 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Field, Form, Formik } from "formik";
-import styles from "./Search.module.css";
+import styles from "./SearchForm.module.css";
 
 const Search = (props) => {
   return (
@@ -16,7 +16,7 @@ const Search = (props) => {
           <div className={styles.wrapper}>
             <div className={styles.search_box}>
               <button type="submit" className={styles.search_btn}>
-                <FontAwesomeIcon icon={faSearch} />
+                <FontAwesomeIcon color={'lightsalmon'} icon={faSearch} />
               </button>
               <Field
                 className={styles.input_search}

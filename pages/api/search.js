@@ -4,11 +4,11 @@ import gql from "graphql-tag";
 import client from "../../apollo-client";
 
 async function handler(req, res) {
-  const {searchText} =  req.query;
+  const searchText = JSON.stringify(req.body);
   const { data } = await client.query({
     query: gql`
       query search {
-        books(q: ${searchText}) @rest(type: "BooksPayload", path: "?{args}&maxResults=40") {
+        books(q: ${searchText} ) @rest(type: "BooksPayload", path: "?{args}&maxResults=40") {
           totalItems
           items @type(name: "Book") {
             id
