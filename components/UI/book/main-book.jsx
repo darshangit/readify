@@ -21,7 +21,10 @@ const MainBook = (props) => {
         <CardInner>
           <CardTop>
             <CardImage
-              src={book.volumeInfo.imageLinks?.thumbnail}
+              src={
+                book.volumeInfo.imageLinks?.thumbnail ||
+                "404.png"
+              }
               alt="Image"
             />
           </CardTop>

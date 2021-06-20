@@ -20,6 +20,7 @@ const Search = (props) => {
               </button>
               <Field
                 className={styles.input_search}
+                autoComplete="off"
                 placeholder="Search Book or Author"
                 id="searchText"
                 name="searchText"
