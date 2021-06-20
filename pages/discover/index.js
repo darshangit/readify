@@ -1,4 +1,4 @@
-import DiscoverContainer from "../../components/discover/DiscoverContainer/Discover";
+import DiscoverContainer from "../../components/discover/discoverContainer/Discover";
 
 const DiscoverPage = (props) => {
   return <DiscoverContainer />;

@@ -1,4 +1,4 @@
-import MyLibraryContainer from "../../components/my-library/MyLibraryContainer/MyLibraryContainer";
+import MyLibraryContainer from "../../components/my-library/myLibraryContainer/MyLibraryContainer";
 
 const MyLibraryPage = (props) => {
   return <MyLibraryContainer />;

@@ -42,9 +42,21 @@ const MainBook = (props) => {
             {!book.volumeInfo.authors && (
               <AuthorNames>Authors Unavailable</AuthorNames>
             )}
-            <FontAwesomeIcon title={"Add to Read"} icon={faPlus} />
-            <FontAwesomeIcon title={"Add to Reading"} icon={faBookOpen} />
-            <FontAwesomeIcon title={"Add to Completed"} icon={faCheck} />
+            <FontAwesomeIcon
+              onClick={props.bookAction.bind(null, book, "To_Read")}
+              title={"Add to Read"}
+              icon={faPlus}
+            />
+            <FontAwesomeIcon
+              onClick={props.bookAction.bind(null, book, "Reading")}
+              title={"Add to Reading"}
+              icon={faBookOpen}
+            />
+            <FontAwesomeIcon
+              onClick={props.bookAction.bind(null, book, "Completed")}
+              title={"Add to Completed"}
+              icon={faCheck}
+            />
           </CardBody>
         </CardInner>
         <CardTitle>{book.volumeInfo.title} </CardTitle>
