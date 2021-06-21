@@ -6,6 +6,7 @@ import Footer from "./footer/Footer";
 import Header from "./header/Header";
 import styles from "./Layout.module.css";
 import Main from "../search/SearchContainer/Search";
+import RightMenu from "./right-menu/RightMenu";
 
 export const Layout = (props) => {
   return (
@@ -13,7 +14,7 @@ export const Layout = (props) => {
       <Header />
       <Aside />
       <main>{props.children}</main>
-      <div className={styles.aside_right}>Right</div>
+      <RightMenu />
       <Footer />
     </div>
   );

@@ -4,17 +4,14 @@
   background-color: white;
   display: grid;
 
-  grid-template-columns: [col-start] 1fr [col-2] 6fr [col-3] 1fr [col-end];
+  grid-template-columns: [col-start] minmax(200px, 200px) [col-2] 6fr [col-3] minmax(
+      300px,
+      1fr
+    ) [col-end];
   grid-auto-rows: 100px auto;
 
   grid-template-areas:
     "h h h "
     "la main ra"
     "f f f";
-}
-
-.aside_right {
-  background-color: skyblue;
-  grid-area: ra;
-  grid-column: 1fr;
 }
