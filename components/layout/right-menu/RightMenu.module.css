@@ -1,14 +1,20 @@
 .aside_right {
   grid-area: ra;
   grid-auto-flow: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px dashed lightgray;
 }
 
 .card {
-  background-color: red;
+  background-color: white;
   width: 100%;
   height: 650px;
   border-radius: 25px;
   margin-right: 10px;
+  box-shadow: inset 0 10px 16px -6px #585856;
+  overflow: scroll;
 }
 
 .card img {
@@ -20,24 +26,29 @@
 .card_heading {
   display: flex;
   justify-content: space-around;
+  cursor: pointer;
+}
+
+.card_heading_decoration {
+  text-decoration: underline;
+  text-decoration-thickness: 5px;
+  text-decoration-color: lightsalmon;
 }
 
 .single_card {
   display: grid;
   padding: 5px;
   grid-template-columns: [col-start] 1fr [col-2] 2fr [col-3] 1fr [col-end];
-  grid-auto-rows: 75px;
+  grid-auto-rows: 70px;
   grid-template-areas: "image details extra";
   gap: 10px;
+  cursor: pointer;
 }
 
 .wrap_text {
   height: 35px;
   overflow: hidden;
-  font-size: small;
   text-overflow: ellipsis;
-  font-size: small;
-  font-weight: 600;
 }
 
 .middle_portion {
@@ -50,4 +61,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.right_portion p {
+  font-size: smaller;
+  font-weight: bolder;
+  color: salmon;
+}
+
+.author {
+  font-size: small;
+  font-style: oblique;
+  color: dimgrey;
+  font-weight: 600;
+}
+
+.title {
+  font-weight: bold;
+  font-size: small;
+  color: #348cb5;
 }

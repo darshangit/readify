@@ -5,6 +5,7 @@ const BookContext = React.createContext({
   addBook: (book, type) => {},
   removeBook: (id, type) => {},
   editBook: (book, type) => {},
+  getBooks: (type) => {},
 });
 
 export default BookContext;

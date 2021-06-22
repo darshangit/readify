@@ -23,11 +23,16 @@ const BookProvider = (props) => {
     console.log("editBookHandler", book);
   };
 
+  const getBooksHandler = (type) => {
+    console.log("getBooksHandler", type);
+  };
+
   const bookContext = {
     books: bookState.books,
     addBook: addBookHandler,
     removeBook: removedBookHandler,
     editBook: editBookHandler,
+    getBooks: getBooksHandler,
   };
 
   return (

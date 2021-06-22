@@ -7,7 +7,7 @@
 .book_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 240px;
+  grid-auto-rows: minmax(240px, auto);
 
   /* flex-flow: row wrap;
       align-items: center; */
