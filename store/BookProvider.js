@@ -12,7 +12,7 @@ const BookProvider = (props) => {
   );
 
   const addBookHandler = (book, type) => {
-    console.log("addBookHandler", book);
+    dispatchBookAction({ actionType: "ADD", type, book });
   };
 
   const removedBookHandler = (id, type) => {
@@ -24,7 +24,8 @@ const BookProvider = (props) => {
   };
 
   const getBooksHandler = (type) => {
-    console.log("getBooksHandler", type);
+    console.log("getBooksHandler", bookState?.books);
+    return bookState?.books?.filter((book) => book.type === type);
   };
 
   const bookContext = {

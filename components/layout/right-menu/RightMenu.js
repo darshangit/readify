@@ -1,40 +1,42 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import BookContext from "../../../store/book-context";
 import styles from "./RightMenu.module.css";
-
-const renderCards = () => {
-  let i = 0;
-  let cardsList = [];
-  while (i <= 10) {
-    cardsList.push(
-      <div className={styles.single_card}>
-        <img src="404.png" />
-        <div className={styles.middle_portion}>
-          <span className={`${styles.wrap_text} ${styles.title}`}>
-            Title of the book is very loong asdn never endsasd asdasdas
-          </span>
-          <span className={`${styles.wrap_text} ${styles.author}`}>
-            Authors name is also super duper longggggggg
-          </span>
-        </div>
-        <div className={styles.right_portion}>
-          <p>50%</p>
-        </div>
-      </div>
-    );
-    i++;
-  }
-
-  return cardsList;
-};
 
 const RightMenu = (props) => {
   let [type, setType] = useState("Reading");
   const bookContext = useContext(BookContext);
+  const { books } = bookContext;
 
   const headingClickedHandler = (type) => {
     setType(type);
-    bookContext.getBooks(type);
+  };
+
+  const renderCards = () => {
+    let i = 0;
+    let bookList = [];
+    const filteredBooks = books.filter((book) => book.type === type);
+    for (const book of filteredBooks) {
+      bookList.push(
+        <div className={styles.single_card}>
+          <img
+            src={book.volumeInfo?.imageLinks?.thumbnail || "404.png"}
+            alt="Image"
+          />
+          <div className={styles.middle_portion}>
+            <span className={`${styles.wrap_text} ${styles.title}`}>
+              {book?.volumeInfo?.title}
+            </span>
+            <span className={`${styles.wrap_text} ${styles.author}`}>
+              {book?.volumeInfo?.authors?.join(", ")}
+            </span>
+          </div>
+          <div className={styles.right_portion}>
+            <p>50%</p>
+          </div>
+        </div>
+      );
+    }
+    return bookList;
   };
 
   return (
