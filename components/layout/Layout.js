@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MainBook from "../UI/book/main-book";
+import MainBook from "../UI/book/Main-Book";
 import Search from "../search/SearchForm";
 import Aside from "./aside/Aside";
 import Footer from "./footer/Footer";

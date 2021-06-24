@@ -1,14 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import BookContext from "../../../store/book-context";
+import Modal from "../../UI/modal/Modal";
 import styles from "./RightMenu.module.css";
 
 const RightMenu = (props) => {
   let [type, setType] = useState("Reading");
+  const [showModal, setShowModal] = useState(false);
+
   const bookContext = useContext(BookContext);
   const { books } = bookContext;
 
   const headingClickedHandler = (type) => {
     setType(type);
+  };
+
+  const cardClickedHandler = () => {
+    setShowModal(true);
   };
 
   const renderCards = () => {
@@ -17,7 +24,7 @@ const RightMenu = (props) => {
     const filteredBooks = books.filter((book) => book.type === type);
     for (const book of filteredBooks) {
       bookList.push(
-        <div className={styles.single_card}>
+        <div onClick={cardClickedHandler} className={styles.single_card}>
           <img
             src={book.volumeInfo?.imageLinks?.thumbnail || "404.png"}
             alt="Image"
@@ -65,6 +72,7 @@ const RightMenu = (props) => {
             Completed
           </h6>
         </div>
+        {showModal && <Modal>hello</Modal>}
         {renderCards()}
       </div>
     </div>

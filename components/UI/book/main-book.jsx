@@ -9,7 +9,7 @@ import {
   AuthorNames,
   MainAuthor,
   Button,
-} from "./main-book.styled";
+} from "./Main-Book.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faCheck, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 

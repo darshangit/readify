@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import BookContext from "../../../store/book-context";
-import MainBook from "../../UI/book/main-book";
+import MainBook from "../../UI/book/Main-Book";
 import Search from "../SearchForm";
 import styles from "./Search.module.css";
 
