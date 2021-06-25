@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import BookContext from "../../../store/book-context";
+import AsideBook from "../../UI/aside-book/AsideBook";
 import Modal from "../../UI/modal/Modal";
 import styles from "./RightMenu.module.css";
 
@@ -14,6 +15,9 @@ const RightMenu = (props) => {
     setType(type);
   };
 
+  const closeModal = () => {
+    setShowModal(false);
+  };
   const cardClickedHandler = () => {
     setShowModal(true);
   };
@@ -23,25 +27,7 @@ const RightMenu = (props) => {
     let bookList = [];
     const filteredBooks = books.filter((book) => book.type === type);
     for (const book of filteredBooks) {
-      bookList.push(
-        <div onClick={cardClickedHandler} className={styles.single_card}>
-          <img
-            src={book.volumeInfo?.imageLinks?.thumbnail || "404.png"}
-            alt="Image"
-          />
-          <div className={styles.middle_portion}>
-            <span className={`${styles.wrap_text} ${styles.title}`}>
-              {book?.volumeInfo?.title}
-            </span>
-            <span className={`${styles.wrap_text} ${styles.author}`}>
-              {book?.volumeInfo?.authors?.join(", ")}
-            </span>
-          </div>
-          <div className={styles.right_portion}>
-            <p>50%</p>
-          </div>
-        </div>
-      );
+      bookList.push(<AsideBook book={book} cardClicked={cardClickedHandler} />);
     }
     return bookList;
   };
@@ -72,7 +58,7 @@ const RightMenu = (props) => {
             Completed
           </h6>
         </div>
-        {showModal && <Modal>hello</Modal>}
+        {showModal && <Modal onClose={closeModal}>hello</Modal>}
         {renderCards()}
       </div>
     </div>
