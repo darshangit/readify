@@ -32,3 +32,11 @@
   text-decoration-thickness: 5px;
   text-decoration-color: lightsalmon;
 }
+
+.modal_main_content {
+  display: grid;
+  grid-template-areas:
+    "TopImage TopContent"
+    "Form Form"
+    "Bottom1 Bottom2";
+}

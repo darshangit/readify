@@ -10,7 +10,7 @@ const Main = () => {
 
   const searchHandler = async (search) => {
     if (search?.searchText) {
-      const response = await fetch("/api/search", {
+      const response = await fetch("/api/searchBooks", {
         method: "POST",
         body: search.searchText,
       });

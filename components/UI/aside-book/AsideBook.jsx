@@ -3,7 +3,10 @@ import styles from "./AsideBook.module.css";
 const AsideBook = (props) => {
   const book = props.book;
   return (
-    <div onClick={props.cardClicked} className={styles.single_card}>
+    <div
+      onClick={props.cardClicked.bind(null, book)}
+      className={styles.single_card}
+    >
       <img
         src={book.volumeInfo?.imageLinks?.thumbnail || "404.png"}
         alt="Image"

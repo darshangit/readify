@@ -18,16 +18,22 @@ const RightMenu = (props) => {
   const closeModal = () => {
     setShowModal(false);
   };
-  const cardClickedHandler = () => {
+  const cardClickedHandler = async (book) => {
+    console.log("book", book);
+
+    const response = await fetch("/api/" + book.id);
+    const bookResult = await response.json();
+    console.log("bookResult", bookResult);
     setShowModal(true);
   };
 
   const renderCards = () => {
-    let i = 0;
     let bookList = [];
     const filteredBooks = books.filter((book) => book.type === type);
     for (const book of filteredBooks) {
-      bookList.push(<AsideBook book={book} cardClicked={cardClickedHandler} />);
+      bookList.push(
+        <AsideBook key={book.id} book={book} cardClicked={cardClickedHandler} />
+      );
     }
     return bookList;
   };
