@@ -7,7 +7,7 @@ import styles from "./RightMenu.module.css";
 const RightMenu = (props) => {
   let [type, setType] = useState("Reading");
   const [showModal, setShowModal] = useState(false);
-
+  const [modalContent, setModalContent] = useState({});
   const bookContext = useContext(BookContext);
   const { books } = bookContext;
 
@@ -15,8 +15,21 @@ const RightMenu = (props) => {
     setType(type);
   };
 
+  console.log("modalContent", modalContent);
   const closeModal = () => {
     setShowModal(false);
+  };
+
+  const getSelectedBookContent = () => {
+    return (
+      <div className={styles.modal_main_content}>
+        <div className={styles.top_left}>Left Top</div>
+        <div className={styles.top_right}>Right Top</div>
+        <div className={styles.middle}>Middle</div>
+        <div className={styles.bottom_left}>Bottom left</div>
+        <div className={styles.bottom_right}>Bottom Right</div>
+      </div>
+    );
   };
   const cardClickedHandler = async (book) => {
     console.log("book", book);
@@ -64,7 +77,9 @@ const RightMenu = (props) => {
             Completed
           </h6>
         </div>
-        {showModal && <Modal onClose={closeModal}>hello</Modal>}
+        {showModal && (
+          <Modal onClose={closeModal}>{getSelectedBookContent()}</Modal>
+        )}
         {renderCards()}
       </div>
     </div>

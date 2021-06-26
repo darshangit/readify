@@ -35,8 +35,28 @@
 
 .modal_main_content {
   display: grid;
-  grid-template-areas:
-    "TopImage TopContent"
-    "Form Form"
-    "Bottom1 Bottom2";
+  background-color: pink;
+  grid-template-columns: repeat(2, 0.9fr 1fr);
+  grid-auto-rows: 300px 300px 180px;
+  gap: 10px;
+}
+
+.top_left {
+  background-color: aqua;
+  grid-column: 1px;
+}
+
+.top_right {
+}
+
+.middle {
+  grid-column: 1/-1;
+}
+
+.bottom_left {
+  background-color: aqua;
+  grid-column: 1/3;
+}
+
+.bottom_right {
 }
