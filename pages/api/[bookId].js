@@ -12,6 +12,7 @@ async function handler(req, res) {
             id
             volumeInfo @type(name: "VolumeInfo") {
                 title
+                description
                 authors
                 publisher
                 publishedDate

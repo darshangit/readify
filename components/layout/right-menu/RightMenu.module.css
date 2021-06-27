@@ -35,21 +35,29 @@
 
 .modal_main_content {
   display: grid;
-  background-color: pink;
-  grid-template-columns: repeat(2, 0.9fr 1fr);
+  grid-template-columns: repeat(2, 2fr 1fr);
   grid-auto-rows: 300px 300px 180px;
   gap: 10px;
 }
 
 .top_left {
-  background-color: aqua;
-  grid-column: 1px;
+  display: flex;
+  justify-content: center;
+}
+
+.top_left img {
+  border-radius: 10px;
 }
 
 .top_right {
+  grid-column: 2/-1;
+  display: flex;
+  flex-direction: column;
 }
 
 .middle {
+  background-color: pink;
+
   grid-column: 1/-1;
 }
 
@@ -59,4 +67,25 @@
 }
 
 .bottom_right {
+}
+
+.author {
+  font-size: small;
+  font-style: oblique;
+  color: dimgrey;
+  font-weight: 600;
+}
+
+.title {
+  font-weight: bold;
+  font-size: small;
+  color: #348cb5;
+}
+
+.wrap_content {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-top: 20px;
+  font-family: serif;
 }
