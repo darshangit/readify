@@ -98,6 +98,7 @@ const RightMenu = (props) => {
           </div>
           <div>
             <p className={styles.bottom_title}>ISBN</p>
+            <span className={styles.bottom_text}>
             {currentBook?.volumeInfo?.industryIdentifiers?.map((item) => {
               return (
                 <span className={styles.bottom_text}>
@@ -108,6 +109,7 @@ const RightMenu = (props) => {
                 </span>
               );
             }) || "NA"}
+            </span>
           </div>
         </div>
       </div>
