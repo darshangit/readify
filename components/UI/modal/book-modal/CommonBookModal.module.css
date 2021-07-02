@@ -26,12 +26,11 @@
 }
 
 .bottom_title {
-  background: lightsalmon;
   border-radius: 6px;
   padding: 2px 4px;
   font-size: medium;
   font-family: monospace;
-  font-weight: 700;
+  font-weight: bold;
   color: #5d5d5d;
   text-align: center;
 }
@@ -40,6 +39,6 @@
   font-size: small;
   font-style: oblique;
   color: dimgrey;
-  font-weight: 600;
+  font-weight: 300;
   text-align: center;
 }
