@@ -1,0 +1,8 @@
+.top_left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.top_left img {
+  border-radius: 10px;
+}

@@ -1,0 +1,45 @@
+.author {
+  font-size: small;
+  font-style: oblique;
+  color: dimgrey;
+  font-weight: 600;
+}
+
+.title {
+  font-weight: bold;
+  font-size: small;
+  color: #348cb5;
+}
+
+.wrap_content {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding-top: 20px;
+  font-family: serif;
+}
+
+.wrap_bottom_content {
+  overflow: hidden;
+  overflow-y: scroll;
+  font-family: serif;
+}
+
+.bottom_title {
+  background: lightsalmon;
+  border-radius: 6px;
+  padding: 2px 4px;
+  font-size: medium;
+  font-family: monospace;
+  font-weight: 700;
+  color: #5d5d5d;
+  text-align: center;
+}
+
+.bottom_text {
+  font-size: small;
+  font-style: oblique;
+  color: dimgrey;
+  font-weight: 600;
+  text-align: center;
+}

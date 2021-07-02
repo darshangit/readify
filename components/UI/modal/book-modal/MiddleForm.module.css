@@ -1,0 +1,4 @@
+.middle {
+  background-color: pink;
+  grid-column: 1/-1;
+}
