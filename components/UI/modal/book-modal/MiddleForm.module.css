@@ -9,27 +9,15 @@
   padding: 10px;
 }
 
-.top_buttons{
-    display: flex;
-    justify-content: space-between;
+.top_buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
-.status, .page_no,.start_date, .end_date{
-    display: flex;
-    justify-content: center;
-}
-
-.button{
-    padding: 2px 30px;
-    background: lightsalmon;
-    color: #5D5D6A;
-    font-size: medium;
-    font-weight: normal;
-    border-radius: 5px;
-    margin: 2px;
-    cursor: pointer;
-}
-
-.button:hover{
-    background: salmon;
+.status,
+.page_no,
+.start_date,
+.end_date {
+  display: flex;
+  justify-content: center;
 }

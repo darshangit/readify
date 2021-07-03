@@ -1,15 +1,17 @@
 import styles from "./MiddleForm.module.css";
 import commonStyles from "./CommonBookModal.module.css";
+import Button from "../../elements/Button";
 const MiddleForm = () => {
   return (
     <div className={styles.middle}>
       <div className={styles.top_buttons}>
-        <button>Delete</button> <button>Save</button>
+        <Button buttonType="delete">Delete</Button>
+        <Button buttonType="save">Save</Button>
       </div>
       <div className={styles.status}>
-        <button className={styles.button}>Reading</button>{" "}
-        <button className={styles.button}>To Read</button>{" "}
-        <button className={styles.button}>Completed</button>
+        <Button>Reading</Button>
+        <Button>To Read</Button>
+        <Button>Completed</Button>
       </div>
       <div className={styles.page_no}>
         <span className={commonStyles.bottom_title}>Current Page No:</span>{" "}
