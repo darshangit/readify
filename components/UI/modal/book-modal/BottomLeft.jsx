@@ -3,7 +3,7 @@ import commonStyles from "./CommonBookModal.module.css";
 
 const BottomLeft = (props) => {
   return (
-    <div className={`${styles.bottom_left} ${styles.wrap_bottom_content}`}>
+    <div className={`${styles.bottom_left} ${commonStyles.wrap_bottom_content}`}>
       <div className={styles.bottom_inner_left}>
         <div>
           <p className={commonStyles.bottom_title}>Total Pages</p>

@@ -8,6 +8,7 @@ import MiddleForm from "../../UI/modal/book-modal/MiddleForm";
 import TopLeft from "../../UI/modal/book-modal/TopLeft";
 import TopRight from "../../UI/modal/book-modal/TopRight";
 import Modal from "../../UI/modal/Modal";
+import { COMPLETED, READING, TO_READ } from "../Constants";
 import styles from "./RightMenu.module.css";
 
 const RightMenu = (props) => {
@@ -45,7 +46,7 @@ const RightMenu = (props) => {
       <div className={styles.modal_main_content}>
         <TopLeft currentBook={currentBook} />
         <TopRight currentBook={currentBook} />
-        <MiddleForm />
+        <MiddleForm type={type} />
         <BottomLeft currentBook={currentBook} />
         <BottomRight currentBook={currentBook} />
       </div>
@@ -72,24 +73,22 @@ const RightMenu = (props) => {
       <div className={styles.card}>
         <div className={styles.card_heading}>
           <h6
-            onClick={headingClickedHandler.bind(null, "Reading")}
-            className={type === "Reading" ? styles.card_heading_decoration : ""}
+            onClick={headingClickedHandler.bind(null, READING)}
+            className={type === READING ? styles.card_heading_decoration : ""}
           >
-            Reading
+            {READING}
           </h6>
           <h6
-            onClick={headingClickedHandler.bind(null, "To_Read")}
-            className={type === "To_Read" ? styles.card_heading_decoration : ""}
+            onClick={headingClickedHandler.bind(null, TO_READ)}
+            className={type === TO_READ ? styles.card_heading_decoration : ""}
           >
-            To Read
+            {TO_READ.replaceAll("_", " ")}
           </h6>
           <h6
-            onClick={headingClickedHandler.bind(null, "Completed")}
-            className={
-              type === "Completed" ? styles.card_heading_decoration : ""
-            }
+            onClick={headingClickedHandler.bind(null, COMPLETED)}
+            className={type === COMPLETED ? styles.card_heading_decoration : ""}
           >
-            Completed
+            {COMPLETED}
           </h6>
         </div>
         {showModal && (

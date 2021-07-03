@@ -2,12 +2,7 @@ import styled from "styled-components";
 
 export const StyledButton = styled.button`
   padding: 2px 30px;
-  background: ${(props) =>
-    props.type === "save"
-      ? "#3bff3b"
-      : props.type === "delete"
-      ? "#ff9699"
-      : "lightsalmon"};
+  background: ${(props) => getBackgroundColor(props)};
   color: #5d5d6a;
   font-size: medium;
   font-weight: normal;
@@ -23,3 +18,15 @@ export const StyledButton = styled.button`
         : "salmon"};
   }
 `;
+function getBackgroundColor(props) {
+  let color = "";
+  if (props.type === "save") {
+    color = "#3bff3b";
+  } else if (props.type === "delete") {
+    color = "#ff0000b8";
+  } else if (props.active) {
+    color = "lightsalmon";
+  }
+
+  return color;
+}
