@@ -15,11 +15,13 @@ const BookProvider = (props) => {
     dispatchBookAction({ actionType: "ADD", type, book });
   };
 
-  const removedBookHandler = (id, type) => {
-    console.log("removedBookHandler", id);
+  const removedBookHandler = (book) => {
+    dispatchBookAction({ actionType: "DELETE", book });
+    console.log("removedBookHandler", book);
   };
 
-  const editBookHandler = (book, type) => {
+  const editBookHandler = (book) => {
+    dispatchBookAction({ actionType: "EDIT", book });
     console.log("editBookHandler", book);
   };
 
