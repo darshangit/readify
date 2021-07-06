@@ -2,26 +2,30 @@ import styles from "./BottomRight.module.css";
 import commonStyles from "./CommonBookModal.module.css";
 
 const BottomRight = (props) => {
+  const volumeInfo = props.fetchedBook?.volumeInfo || {};
+
   return (
-    <div className={`${styles.bottom_right} ${commonStyles.wrap_bottom_content}`}>
+    <div
+      className={`${styles.bottom_right} ${commonStyles.wrap_bottom_content}`}
+    >
       <div className={styles.inner_bottom_right}>
         <div>
           <p className={commonStyles.bottom_title}>Publisher</p>
           <p className={`${commonStyles.bottom_text}`}>
-            {props.currentBook?.volumeInfo?.publisher || "NA"}
+            {volumeInfo.publisher || "NA"}
           </p>
         </div>
         <div>
           <p className={commonStyles.bottom_title}>Published Date</p>
           <p className={commonStyles.bottom_text}>
-            {props.currentBook?.volumeInfo?.publishedDate || "NA"}
+            {volumeInfo.publishedDate || "NA"}
           </p>
         </div>
       </div>
       <div>
         <p className={commonStyles.bottom_title}>ISBN</p>
         <span className={commonStyles.bottom_text}>
-          {props.currentBook?.volumeInfo?.industryIdentifiers?.map((item) => {
+          {volumeInfo.industryIdentifiers?.map((item) => {
             return (
               <span className={commonStyles.bottom_text}>
                 {item.type} :{" "}

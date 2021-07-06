@@ -14,8 +14,9 @@ import styles from "./RightMenu.module.css";
 const RightMenu = (props) => {
   let [type, setType] = useState("Reading");
   const [showModal, setShowModal] = useState(false);
-  const [currentBook, setCurrentBook] = useState({});
+  const [fetchedBook, setFetchedBook] = useState({});
   const [currentBookId, setCurrentBookId] = useState(null);
+  const [currentbook, setCurrentBook] = useState({});
 
   const bookContext = useContext(BookContext);
   const { books } = bookContext;
@@ -27,6 +28,7 @@ const RightMenu = (props) => {
   const closeModal = () => {
     setShowModal(false);
     setCurrentBookId(null);
+    setCurrentBook({});
   };
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const RightMenu = (props) => {
       if (currentBookId) {
         const response = await fetch("/api/" + currentBookId);
         const bookResult = await response.json();
-        setCurrentBook(bookResult);
+        setFetchedBook(bookResult);
         setShowModal(true);
       }
     };
@@ -44,20 +46,37 @@ const RightMenu = (props) => {
   const getSelectedBookContent = () => {
     return (
       <div className={styles.modal_main_content}>
-        <TopLeft currentBook={currentBook} />
-        <TopRight currentBook={currentBook} />
-        <MiddleForm type={type} />
-        <BottomLeft currentBook={currentBook} />
-        <BottomRight currentBook={currentBook} />
+        <TopLeft fetchedBook={fetchedBook} />
+        <TopRight fetchedBook={fetchedBook} />
+        <MiddleForm
+          type={type}
+          currentBook={currentbook}
+          fetchedBook={fetchedBook}
+          formAction={formHandler}
+        />
+        <BottomLeft fetchedBook={fetchedBook} />
+        <BottomRight fetchedBook={fetchedBook} />
       </div>
     );
   };
+
+  const formHandler = (type, book) => {
+    if (type === "EDIT") {
+      bookContext.editBook(book, type);
+    } else {
+      bookContext.removeBook(book, type);
+    }
+    closeModal();
+  };
+
   const cardClickedHandler = async (book) => {
+    setCurrentBook(book);
     setCurrentBookId(book.id);
   };
 
   const renderCards = () => {
     const filteredBooks = books.filter((book) => book.type === type);
+    console.log("filteredBooks", filteredBooks);
     let content = filteredBooks.map((book) => {
       return (
         <AsideBook key={book.id} book={book} cardClicked={cardClickedHandler} />

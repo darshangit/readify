@@ -22,7 +22,6 @@ const BookProvider = (props) => {
 
   const editBookHandler = (book) => {
     dispatchBookAction({ actionType: "EDIT", book });
-    console.log("editBookHandler", book);
   };
 
   const getBooksHandler = (type) => {

@@ -5,7 +5,7 @@ const TopLeft = (props) => {
   return (
     <div className={styles.top_left}>
       <img
-        src={props.currentBook?.volumeInfo?.imageLinks?.thumbnail || "404.png"}
+        src={props.fetchedBook?.volumeInfo?.imageLinks?.thumbnail || "404.png"}
         alt="Image"
       />
     </div>

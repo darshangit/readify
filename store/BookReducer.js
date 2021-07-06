@@ -20,23 +20,28 @@ const bookReducer = (state, action) => {
     }
 
     case "EDIT": {
+      let books = [];
       const editedBook = action.book;
       const existingIndex = state.books.findIndex((book) => {
         return book.id == editedBook.id;
       });
 
       state.books[existingIndex] = editedBook;
-      return state.books;
+      books = state.books;
+      return { books };
     }
 
     case "DELETE": {
+      let books = [];
       const deletedBook = action.book;
-
       const existingIndex = state.books.findIndex((book) => {
         return book.id == deletedBook.id;
       });
+
       state.books.splice(existingIndex, 1);
-      return state.books;
+      books = state.books;
+
+      return { books };
     }
 
     default:

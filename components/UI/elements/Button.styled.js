@@ -11,18 +11,18 @@ export const StyledButton = styled.button`
   cursor: pointer;
   &:hover {
     background: ${(props) =>
-      props.type === "save"
+      props.buttonType === "save"
         ? "#55e85b"
-        : props.type === "delete"
+        : props.buttonType === "delete"
         ? "#ff7575"
         : "salmon"};
   }
 `;
 function getBackgroundColor(props) {
   let color = "";
-  if (props.type === "save") {
+  if (props.buttonType === "save") {
     color = "#3bff3b";
-  } else if (props.type === "delete") {
+  } else if (props.buttonType === "delete") {
     color = "#ff0000b8";
   } else if (props.active) {
     color = "lightsalmon";
