@@ -3,6 +3,7 @@ import commonStyles from "./CommonBookModal.module.css";
 import Button from "../../elements/Button";
 import { COMPLETED, READING, TO_READ } from "../../../layout/Constants";
 import { useState } from "react";
+import { toastIt } from "../../../layout/Common";
 
 const MiddleForm = (props) => {
   let currentBook = props.currentBook;
@@ -22,8 +23,16 @@ const MiddleForm = (props) => {
       currentBook.startDate = formState.startDate;
       currentBook.endDate = formState.endDate;
       props.formAction(actionType, currentBook);
+      toastIt(`"${currentBook.volumeInfo.title}" has been Edited`);
     } else {
-      props.formAction(actionType, currentBook);
+      let isConfirmed = window.confirm(
+        "Are you sure to remove the book from your list? All data will be lost."
+      );
+
+      if (isConfirmed) {
+        props.formAction(actionType, currentBook);
+        toastIt(`"${currentBook.volumeInfo.title}" has been deleted from Your List`);
+      }
     }
   };
 
@@ -95,7 +104,7 @@ const MiddleForm = (props) => {
             onChange={handlerInputChange}
           />
           <span className={styles.divider_style}>
-            / {fetchedBook?.volumeInfo?.pageCount || 'NA'}
+            / {fetchedBook?.volumeInfo?.pageCount || "NA"}
           </span>
         </span>
       </div>

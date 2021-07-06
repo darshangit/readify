@@ -76,7 +76,6 @@ const RightMenu = (props) => {
 
   const renderCards = () => {
     const filteredBooks = books.filter((book) => book.type === type);
-    console.log("filteredBooks", filteredBooks);
     let content = filteredBooks.map((book) => {
       return (
         <AsideBook key={book.id} book={book} cardClicked={cardClickedHandler} />

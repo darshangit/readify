@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import BookContext from "../../../store/book-context";
+import { toastIt } from "../../layout/Common";
 import MainBook from "../../UI/book/Main-Book";
 import Search from "../SearchForm";
 import styles from "./Search.module.css";
@@ -20,6 +21,7 @@ const Main = () => {
   };
 
   const bookActionHandler = (book, eventType) => {
+    toastIt(`"${book.volumeInfo.title}" added to ${eventType} list`);
     bookContext.addBook(book, eventType);
   };
   return (

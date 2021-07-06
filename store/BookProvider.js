@@ -17,7 +17,6 @@ const BookProvider = (props) => {
 
   const removedBookHandler = (book) => {
     dispatchBookAction({ actionType: "DELETE", book });
-    console.log("removedBookHandler", book);
   };
 
   const editBookHandler = (book) => {
@@ -25,7 +24,6 @@ const BookProvider = (props) => {
   };
 
   const getBooksHandler = (type) => {
-    console.log("getBooksHandler", bookState?.books);
     return bookState?.books?.filter((book) => book.type === type);
   };
 
