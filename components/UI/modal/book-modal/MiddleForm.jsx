@@ -31,7 +31,9 @@ const MiddleForm = (props) => {
 
       if (isConfirmed) {
         props.formAction(actionType, currentBook);
-        toastIt(`"${currentBook.volumeInfo.title}" has been deleted from Your List`);
+        toastIt(
+          `"${currentBook.volumeInfo.title}" has been removed from Your List`
+        );
       }
     }
   };

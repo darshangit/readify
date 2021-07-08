@@ -1,3 +1,4 @@
+import { COMPLETED, READING } from "../../layout/Constants";
 import styles from "./AsideBook.module.css";
 
 const AsideBook = (props) => {
@@ -19,9 +20,16 @@ const AsideBook = (props) => {
           {book?.volumeInfo?.authors?.join(", ")}
         </span>
       </div>
-      <div className={styles.right_portion}>
-        <p>50%</p>
-      </div>
+      {book.type === READING && (
+        <div className={styles.right_portion}>
+          <p>50%</p>
+        </div>
+      )}
+      {book.type === COMPLETED && (
+        <div className={styles.right_portion}>
+          <p>2017-10-20</p>
+        </div>
+      )}
     </div>
   );
 };
