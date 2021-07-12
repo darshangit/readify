@@ -39,3 +39,10 @@
   grid-auto-rows: 300px 300px 180px;
   gap: 10px;
 }
+
+@media only screen and (max-width: 900px){
+  .card {
+    width: 50%;
+    height: 650px;
+  }
+}

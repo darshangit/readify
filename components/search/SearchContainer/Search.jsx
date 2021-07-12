@@ -29,17 +29,19 @@ const Main = () => {
       <div className={styles.search_container}>
         <Search search={searchHandler} />
       </div>
-      <div className={styles.book_container}>
-        {books?.map((book) => {
-          return (
-            <MainBook
-              key={book.id}
-              book={book}
-              bookAction={bookActionHandler}
-            />
-          );
-        })}
-      </div>
+      {books.length > 0 && (
+        <div className={styles.book_container}>
+          {books?.map((book) => {
+            return (
+              <MainBook
+                key={book.id}
+                book={book}
+                bookAction={bookActionHandler}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
