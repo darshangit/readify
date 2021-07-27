@@ -1,10 +1,28 @@
 import { useContext, useState } from "react";
+import styled from "styled-components";
 import BookContext from "../../../store/book-context";
 import { toastIt } from "../../layout/Common";
 import MainBook from "../../UI/book/Main-Book";
 import Search from "../SearchForm";
-import styles from "./Search.module.css";
 
+const SearchWrapper = styled.div`
+  background-color: #fff;
+  grid-area: main;
+  grid-column: 1fr;
+
+  :first-child {
+    margin: 20px 0;
+  }
+`;
+
+const BookContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: minmax(240px, 1fr);
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+`;
 const Main = () => {
   const [books, setBooks] = useState([]);
   const bookContext = useContext(BookContext);
@@ -25,12 +43,10 @@ const Main = () => {
     bookContext.addBook(book, eventType);
   };
   return (
-    <div className={styles.main_content}>
-      <div className={styles.search_container}>
-        <Search search={searchHandler} />
-      </div>
+    <SearchWrapper>
+      <Search search={searchHandler} />
       {books.length > 0 && (
-        <div className={styles.book_container}>
+        <BookContainer>
           {books?.map((book) => {
             return (
               <MainBook
@@ -40,9 +56,9 @@ const Main = () => {
               />
             );
           })}
-        </div>
+        </BookContainer>
       )}
-    </div>
+    </SearchWrapper>
   );
 };
 

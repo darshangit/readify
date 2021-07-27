@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useEffect } from "react/cjs/react.development";
+import styled, { css } from "styled-components";
 import BookContext from "../../../store/book-context";
 import AsideBook from "../../UI/aside-book/AsideBook";
 import BottomLeft from "../../UI/modal/book-modal/BottomLeft";
@@ -9,7 +10,61 @@ import TopLeft from "../../UI/modal/book-modal/TopLeft";
 import TopRight from "../../UI/modal/book-modal/TopRight";
 import Modal from "../../UI/modal/Modal";
 import { COMPLETED, READING, TO_READ } from "../Constants";
-import styles from "./RightMenu.module.css";
+
+const AsideMenu = styled.div`
+  grid-area: ra;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* @media only screen and (max-width: 900px) {
+      .card {
+        width: 50%;
+        height: 650px;
+      }
+    } */
+`;
+
+const Card = styled.div`
+  background-color: white;
+  width: 100%;
+  height: 80vh;
+  border-radius: 25px;
+  margin-right: 10px;
+  box-shadow: inset 0 10px 16px -6px #585856;
+  overflow: scroll;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+`;
+
+const CardHeading = styled.div`
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+`;
+
+const CardHeaderItem = styled.h6`
+  padding: 5px;
+
+  ${(p) =>
+    p.active
+      ? css`
+          background-image: linear-gradient(to right, #f8049c, #fdd54f);
+          border-radius: 5px;
+        `
+      : ``}
+`;
+
+const MainAsideContent = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr 1fr);
+  grid-auto-rows: 300px 300px 180px;
+  gap: 10px;
+`;
 
 const RightMenu = (props) => {
   let [type, setType] = useState("Reading");
@@ -45,7 +100,7 @@ const RightMenu = (props) => {
 
   const getSelectedBookContent = () => {
     return (
-      <div className={styles.modal_main_content}>
+      <MainAsideContent>
         <TopLeft fetchedBook={fetchedBook} />
         <TopRight fetchedBook={fetchedBook} />
         <MiddleForm
@@ -56,7 +111,7 @@ const RightMenu = (props) => {
         />
         <BottomLeft fetchedBook={fetchedBook} />
         <BottomRight fetchedBook={fetchedBook} />
-      </div>
+      </MainAsideContent>
     );
   };
 
@@ -86,35 +141,35 @@ const RightMenu = (props) => {
   };
 
   return (
-    <div className={styles.aside_right}>
+    <AsideMenu>
       <h3>Your List</h3>
-      <div className={styles.card}>
-        <div className={styles.card_heading}>
-          <h6
+      <Card>
+        <CardHeading>
+          <CardHeaderItem
             onClick={headingClickedHandler.bind(null, READING)}
-            className={type === READING ? styles.card_heading_decoration : ""}
+            active={type === READING}
           >
             {READING}
-          </h6>
-          <h6
+          </CardHeaderItem>
+          <CardHeaderItem
             onClick={headingClickedHandler.bind(null, TO_READ)}
-            className={type === TO_READ ? styles.card_heading_decoration : ""}
+            active={type === TO_READ}
           >
             {TO_READ.replaceAll("_", " ")}
-          </h6>
-          <h6
+          </CardHeaderItem>
+          <CardHeaderItem
             onClick={headingClickedHandler.bind(null, COMPLETED)}
-            className={type === COMPLETED ? styles.card_heading_decoration : ""}
+            active={type === COMPLETED}
           >
             {COMPLETED}
-          </h6>
-        </div>
+          </CardHeaderItem>
+        </CardHeading>
         {showModal && (
           <Modal onClose={closeModal}>{getSelectedBookContent()}</Modal>
         )}
         {renderCards()}
-      </div>
-    </div>
+      </Card>
+    </AsideMenu>
   );
 };
 
