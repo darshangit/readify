@@ -18,8 +18,8 @@ const MainWrapper = styled.div`
     "h h"
     "main ra"
     "f f";
-  /* 
-  @media only screen and (max-width: 900px) {
+  
+  /* @media only screen and (max-width: 900px) {
     display: grid;
 
     grid-template-columns: 1fr;

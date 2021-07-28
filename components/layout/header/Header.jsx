@@ -10,6 +10,7 @@ const HeaderWrapper = styled.div`
   align-items: center;
   border-bottom: 1px lightgray;
   box-shadow: inset 0 0px 16px -6px lightsalmon;
+  font-family: "Kaushan Script";
 
   p {
     padding-left: 60px;

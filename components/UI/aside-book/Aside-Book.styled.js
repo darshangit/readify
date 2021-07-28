@@ -20,12 +20,14 @@ export const MiddlePortion = styled.div`
   span:nth-child(1) {
     font-weight: bold;
     color: #348cb5;
+    font-family: 'Architects Daughter';
   }
 
   span:nth-child(2) {
     font-style: oblique;
     color: dimgrey;
-    font-weight: 600;
+    font-weight: bolder;
+    font-family: 'Architects Daughter';
   }
 `;
 

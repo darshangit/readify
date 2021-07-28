@@ -9,7 +9,7 @@ const SearchWrapper = styled.div`
   background-color: #fff;
   grid-area: main;
   grid-column: 1fr;
-
+  font-family: 'Architects Daughter';
   :first-child {
     margin: 20px 0;
   }

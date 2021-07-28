@@ -11,7 +11,7 @@ import TopRight from "../../UI/modal/book-modal/TopRight";
 import Modal from "../../UI/modal/Modal";
 import { COMPLETED, READING, TO_READ } from "../Constants";
 
-const AsideMenu = styled.div`
+const AsideMenuWrapper = styled.div`
   grid-area: ra;
   display: flex;
   flex-direction: column;
@@ -34,6 +34,7 @@ const Card = styled.div`
   box-shadow: inset 0 10px 16px -6px #585856;
   overflow: scroll;
 
+
   img {
     width: 100%;
     height: 100%;
@@ -45,6 +46,8 @@ const CardHeading = styled.div`
   display: flex;
   justify-content: space-around;
   cursor: pointer;
+  font-family: "Kaushan Script"
+
 `;
 
 const CardHeaderItem = styled.h6`
@@ -62,8 +65,8 @@ const CardHeaderItem = styled.h6`
 const MainAsideContent = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr 1fr);
-  grid-auto-rows: 300px 300px 180px;
-  gap: 10px;
+  grid-auto-rows: 25vh 25vh 25vh;
+  gap:10px;
 `;
 
 const RightMenu = (props) => {
@@ -141,7 +144,7 @@ const RightMenu = (props) => {
   };
 
   return (
-    <AsideMenu>
+    <AsideMenuWrapper>
       <h3>Your List</h3>
       <Card>
         <CardHeading>
@@ -169,7 +172,7 @@ const RightMenu = (props) => {
         )}
         {renderCards()}
       </Card>
-    </AsideMenu>
+    </AsideMenuWrapper>
   );
 };
 
