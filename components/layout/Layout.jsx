@@ -19,9 +19,9 @@ const MainWrapper = styled.div`
     "main ra"
     "f f";
   
-  /* @media only screen and (max-width: 900px) {
+  @media (max-width: 900px) {
     display: grid;
-
+    
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-areas:
@@ -29,7 +29,7 @@ const MainWrapper = styled.div`
       "main"
       "ra"
       "f";
-  } */
+  }
 `;
 
 export const Layout = (props) => {

@@ -18,6 +18,10 @@ export const StyledButton = styled.button`
         ? "#ff7575"
         : "linear-gradient(to left,  #f8049c, #f8049c)"};
   }
+
+  @media (max-width: 900px){
+    padding: 1px 10px;
+  }
 `;
 function getBackgroundColor(props) {
   let color = "";

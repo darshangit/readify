@@ -17,12 +17,9 @@ const AsideMenuWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  /* @media only screen and (max-width: 900px) {
-      .card {
-        width: 50%;
-        height: 650px;
-      }
-    } */
+  h3 {
+    font-family: "Kaushan Script";
+  }
 `;
 
 const Card = styled.div`
@@ -34,11 +31,15 @@ const Card = styled.div`
   box-shadow: inset 0 10px 16px -6px #585856;
   overflow: scroll;
 
-
   img {
     width: 100%;
     height: 100%;
     border-radius: 10px;
+  }
+
+  @media (max-width: 900px) {
+    width: 60%;
+    height: 80vh;
   }
 `;
 
@@ -46,8 +47,7 @@ const CardHeading = styled.div`
   display: flex;
   justify-content: space-around;
   cursor: pointer;
-  font-family: "Kaushan Script"
-
+  font-family: "Kaushan Script";
 `;
 
 const CardHeaderItem = styled.h6`
@@ -66,7 +66,7 @@ const MainAsideContent = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr 1fr);
   grid-auto-rows: 25vh 25vh 25vh;
-  gap:10px;
+  gap: 10px;
 `;
 
 const RightMenu = (props) => {
